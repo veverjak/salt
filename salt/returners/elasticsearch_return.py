@@ -130,11 +130,10 @@ def returner(ret):
         def dst(self, dt):
             return timedelta(0)
 
-    if isinstance(ret['return'], dict):
-        sk = ""
-        for k in ret['return'].keys():
-            sk = k.replace('.', '_')
-            ret['return'][sk] = ret['return'].pop(k)
+    sk = ""
+    for k in ret['return'].keys():
+        sk = k.replace('.', '_')
+        ret['return'][sk] = ret['return'].pop(k)
 
     utc = UTC()
     data = {
